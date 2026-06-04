@@ -15,8 +15,19 @@ const resumeVersionSchema = new mongoose.Schema({
   fileSize: Number,
   mimeType: String,
   extractedText: String,
+  uploadStatus: {
+    type: String,
+    enum: ['processing', 'completed', 'failed'],
+    default: 'completed'
+  },
+  analysisStatus: {
+    type: String,
+    enum: ['pending', 'processing', 'completed', 'failed'],
+    default: 'pending'
+  },
   analysis: {
     atsScore: Number,
+    keywordMatchPercentage: Number,
     missingKeywords: [String],
     suggestions: [String],
     strengths: [String],

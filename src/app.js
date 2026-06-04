@@ -13,6 +13,8 @@ app.use(express.json()); // Parse JSON payloads
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const applicationRoutes = require('./routes/applicationRoutes');
+const resumeRoutes = require('./routes/resumeRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'success', message: 'CareerMate API is running' });
@@ -20,6 +22,8 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/applications', applicationRoutes);
+app.use('/api/resumes', resumeRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Error Handler Middleware (must be the last middleware)
 app.use(errorHandler);

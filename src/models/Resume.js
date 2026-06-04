@@ -13,6 +13,10 @@ const resumeSchema = new mongoose.Schema({
   isPrimary: {
     type: Boolean,
     default: false
+  },
+  primaryVersionId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'ResumeVersion'
   }
 }, {
   timestamps: true
