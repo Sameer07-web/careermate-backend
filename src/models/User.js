@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add a password'],
     minlength: 6,
-    select: false // Do not return password by default
+    select: false
   },
   role: {
     type: String,
@@ -30,7 +30,12 @@ const userSchema = new mongoose.Schema({
     headline: { type: String, default: '' },
     targetRole: { type: String, default: '' },
     experienceLevel: { type: String, enum: ['entry', 'mid', 'senior'], default: 'entry' },
-    skills: { type: [String], default: [] }
+    skills: { type: [String], default: [] },
+    college: { type: String, default: '' },
+    graduationYear: { type: Number },
+    linkedinUrl: { type: String, default: '' },
+    githubUrl: { type: String, default: '' },
+    portfolioUrl: { type: String, default: '' }
   }
 }, {
   timestamps: true
