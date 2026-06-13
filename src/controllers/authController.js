@@ -76,10 +76,9 @@ exports.login = async (req, res, next) => {
 // @access  Private
 exports.getProfile = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user.id);
     res.status(200).json({
       status: 'success',
-      data: user
+      data: req.user
     });
   } catch (error) {
     next(error);
